@@ -1,0 +1,30 @@
+<h2>多肉植物管理</h2>
+
+<h3>多肉植物新規登録</h3>
+<%= form_with model: @plant, url: admin_plants_path do |f| %>
+  <%= f.label :name, "多肉植物名:" %>
+	<%= f.text_field :name %>
+	<%= f.label :genre, "属名:" %>
+	<%= f.text_field :genre %>
+	<%= f.submit "追加", class: "btn btn-primary ml2" %>
+<% end %>
+
+<h3>多肉植物一覧</h3>
+<table class="genre_info has_border">
+  <thead>
+	  <tr>
+			<th>植物名</th>
+	    <th>属名</th>
+      <th></th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @plants.each do |plant| %>
+		  <tr>
+			  <td><%= plant.name %></td>
+				<td><%= plant.genre %></td>
+				<td class="text-center"><%= link_to "編集", edit_admin_plant_path(plant), class: "btn btn-success" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

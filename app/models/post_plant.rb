@@ -1,0 +1,2 @@
+class PostPlant < ApplicationRecord
+end
