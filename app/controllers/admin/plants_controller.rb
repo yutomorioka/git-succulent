@@ -9,7 +9,7 @@ class Admin::PlantsController < ApplicationController
     if @plant.save
       redirect_to admin_plants_path
     else
-      @plantsb= Plant.all
+      @plant= Plant.all
       render :index
     end
   end  

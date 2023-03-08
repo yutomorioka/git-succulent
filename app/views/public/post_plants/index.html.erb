@@ -1,2 +1,23 @@
-<h1>Public::PostPlants#index</h1>
-<p>Find me in app/views/public/post_plants/index.html.erb</p>
+<h2>投稿一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>多肉植物名</th>
+      <th>品種名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @post_plants.each do |post_plant| %>
+      <tr>
+        <td>画像</td>
+        <td><%= link_to post_plant.title, post_plant_path(post_plant.id) %></td>
+        <td><%= post_plant.plant.name %></td>
+        <td><%= post_plant.plant.genre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

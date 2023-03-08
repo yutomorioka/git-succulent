@@ -12,19 +12,19 @@
 <h3>多肉植物一覧</h3>
 <table class="genre_info has_border">
   <thead>
-	  <tr>
-			<th>植物名</th>
-	    <th>属名</th>
+  	<tr>
+	  <th>植物名</th>
+	  <th>属名</th>
       <th></th>
-		</tr>
-	</thead>
-	<tbody>
-	  <% @plants.each do |plant| %>
-		  <tr>
-			  <td><%= plant.name %></td>
-				<td><%= plant.genre %></td>
-				<td class="text-center"><%= link_to "編集", edit_admin_plant_path(plant), class: "btn btn-success" %></td>
-			</tr>
-		<% end %>
-	</tbody>
+	</tr>
+  </thead>
+  <tbody>
+	<% @plants.each do |plant| %>
+	  <tr>
+	    <td><%= plant.name %></td>
+		<td><%= plant.genre %></td>
+		<td class="text-center"><%= link_to "編集", edit_admin_plant_path(plant), class: "btn btn-success" %></td>
+	  </tr>
+	<% end %>
+  </tbody>
 </table>

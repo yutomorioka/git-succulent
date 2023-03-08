@@ -1,24 +1,34 @@
-# README
+# Succulent
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+- 多肉植物を育てる過程や育てた植物を共有できる。
+- 実際に多肉植物を育てている人、これから植物を育てたい人の交流の場になれるコミュニティサイトです。
 
-Things you may want to cover:
+### テーマを選んだ理由
+昨今コロナで癒しを求める植物の人気が高まっています。 その中でも多肉植物は、コンパクトで育てやすく管理がしやすいです。
+また、寄せ植えなどにしてアレンジを楽しむこともできます。
+ほかの植物には無い魅力を共有し、これから植物を育てる人の第一歩になると思ったからです。
 
-* Ruby version
+### ターゲットユーザ
+- 育てた多肉植物を共有したい人。
+- 植物を育ててみたい人。
 
-* System dependencies
+### 主な利用シーン
+- 寄せ植えなどアレンジした多肉植物を共有する。
+- 多肉植物の寄せ植え等を見て癒されたい時。
+- 初めて植物を育てる。
 
-* Configuration
+## 設計書
+- 実装機能リストURL：https://docs.google.com/spreadsheets/d/12Dc7kb0qHbboRofgMQ1dQyHWf9yJ9vkTKdL3H1LpjMQ/edit?usp=sharing
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。

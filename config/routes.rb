@@ -9,7 +9,7 @@ devise_for :users,skip: [:passwords], controllers: {
 
 scope module: :public do
     root 'homes#top'
-    resources :post_plants, only: [:index, :create, :edit, :update, :destroy]
+    resources :post_plants, only: [:new, :index, :create, :edit, :update, :destroy]
 end
 
 # 管理者用

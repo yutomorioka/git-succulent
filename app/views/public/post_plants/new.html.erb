@@ -1,2 +1,17 @@
-<h1>Public::PostPlants#new</h1>
-<p>Find me in app/views/public/post_plants/new.html.erb</p>
+<h2>投稿画面</h2>
+
+<%= form_with model: @post_plant, url: post_plants_path do |f| %>
+  <%= f.label :name, "多肉植物名:" %>
+	<%= f.select :plant_id, options_from_collection_for_select(Plant.all, :id, :name) %>
+
+	<%= f.label :area, "場所:" %>
+	<%= f.select :area, PostPlant.areas.keys, {} %>
+
+	<%= f.label :title, "タイトル:" %>
+	<%= f.text_field :title %>
+	<%= f.label :explanation, "本文:" %>
+	<%= f.text_area :explanation %>
+
+
+	<%= f.submit "投稿", class: "btn btn-primary ml2" %>
+<% end %>
