@@ -4,10 +4,10 @@ class Public::PostPlantsController < ApplicationController
   end
 
   def create
-    @post_plant.genre_id = params[:genre][:name]
     @post_plant = PostPlant.new(post_plant_params)
     @post_plant.user_id = current_user.id
-    if @post_plant.save
+    
+    if @post_plant.save!
       redirect_to post_plants_path
     else
       render :new
@@ -27,7 +27,7 @@ class Public::PostPlantsController < ApplicationController
   private
 
   def post_plant_params
-    params.require(:post_plant).permit(:title, :explanation, :image, :plant_id)
+    params.require(:post_plant).permit(:title, :explanation, :area, :plant_id, :user_id)
   end
 
 end

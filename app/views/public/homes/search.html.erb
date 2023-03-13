@@ -1,0 +1,11 @@
+<h2>検索結果</h2>
+
+<% if @result.exists %>
+  <% if @model == 'user' %>
+    <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
+      <%= render 'public/user/index', users: @records %>
+  <% else @model == 'post_plant' %>
+    <h3>【Postsモデルの検索結果】検索ワード：<%= @content %></h3>
+      <%= render 'public/post_plants/index', posts: @records %>
+  <% end %>
+<% end %>
