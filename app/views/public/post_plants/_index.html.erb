@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>多肉植物名</th>
+      <th>品種名</th>
+      <th>ユーザー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% post_plants.each do |post_plant| %>
+      <tr>
+        <td>画像
+        <%= link_to post_plant.title, post_plant_path(post_plant.id) %></td>
+        <td><%= post_plant.plant.name %></td>
+        <td><%= post_plant.plant.genre %></td>
+        <td><%= post_plant.user.name%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
