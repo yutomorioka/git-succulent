@@ -3,8 +3,8 @@ class Public::HomesController < ApplicationController
   end
 
   def search
-    @content = params[:content]
-    @records = Plant.search_for(@content)
+    @search = params[:search]
+    @records = Plant.search_for(@search)
   end
 
 end

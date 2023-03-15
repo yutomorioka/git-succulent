@@ -1,7 +1,7 @@
 <h2>検索結果</h2>
 
 <% if @records.exists? %>
-  <h3>検索ワード：<%= @content %></h3>
+  <h3>検索ワード：<%= @search %></h3>
   <% @records.each do |plant| %>
     <%= render 'public/post_plants/index', post_plants: plant.post_plants %>
   <% end %>

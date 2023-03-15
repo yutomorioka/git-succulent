@@ -15,7 +15,10 @@ devise_for :users,skip: [:passwords], controllers: {
 scope module: :public do
     root 'homes#top'
     get 'search' => 'homes#search', as: 'search'
-    resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy]
+    resources :users, only: [:new, :show, :index, :create, :edit, :update, :destroy]
+    resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]  
+    end
 end
 
 # 管理者用
