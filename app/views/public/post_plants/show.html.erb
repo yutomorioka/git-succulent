@@ -2,7 +2,7 @@
   <h1><%= @post_plant.title %></h1>
   <div>
     画像
-    <%= @post_plant.user.name %>  
+    <%= @post_plant.user.name %>
   </div>
   <table>
     <tbody>
@@ -10,10 +10,10 @@
         <th>植物名</th>
         <td><%= @post_plant.plant.name %></td>
         <th>属名</th>
-        <td><%= @@post_plant.plant.genre %></td>
+        <td><%= @post_plant.plant.genre %></td>
         <th>地域</th>
         <td><%= @post_plant.area %></td>
-        <th>特徴</th>
+        <th>特徴(タグ)</th>
         <td></td>
       </tr>
     </tbody>
@@ -21,4 +21,5 @@
   <div>画像</div>
   <div>作成日</div>
   <div><%= @post_plant.explanation %></div>
+  <div><%= render "public/favorites/favorite", post_plant: @post_plant %></div>
 </div>
