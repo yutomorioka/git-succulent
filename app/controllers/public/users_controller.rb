@@ -7,4 +7,9 @@ class Public::UsersController < ApplicationController
 
   def edit
   end
+  
+  def favorite
+    
+  end
+  
 end

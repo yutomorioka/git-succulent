@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
   # 顧客用
 # URL /customers/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -13,12 +8,15 @@ devise_for :users,skip: [:passwords], controllers: {
 }
 
 scope module: :public do
-    root 'homes#top'
-    get 'search' => 'homes#search', as: 'search'
-    resources :users, only: [:new, :show, :index, :create, :edit, :update, :destroy]
-    resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy] do
-      resource :favorites, only: [:create, :destroy]  
-    end
+  root 'homes#top'
+  get 'search' => 'homes#search', as: 'search'
+  get "users/:id/favorites" => "users#favorites"
+  resources :users, only: [:new, :show, :index, :create, :edit, :update, :destroy]
+    
+  resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:create]
+    resource :favorites, only: [:create, :destroy]  
+  end
 end
 
 # 管理者用

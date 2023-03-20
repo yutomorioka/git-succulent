@@ -20,6 +20,7 @@ class Public::PostPlantsController < ApplicationController
 
   def show
     @post_plant = PostPlant.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

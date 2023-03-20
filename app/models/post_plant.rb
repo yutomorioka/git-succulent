@@ -17,6 +17,7 @@ class PostPlant < ApplicationRecord
    belongs_to :plant
    has_many :post_tags, dependent: :destroy
    has_many :favorites, dependent: :destroy
+   has_many :comments, dependent: :destroy
    
    has_one_attached :image
    

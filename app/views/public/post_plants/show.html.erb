@@ -21,5 +21,10 @@
   <div>画像</div>
   <div>作成日</div>
   <div><%= @post_plant.explanation %></div>
+  
   <div><%= render "public/favorites/favorite", post_plant: @post_plant %></div>
+  
+  <%= render "public/comments/index", post_plant: @post_plant %>
+  <%= render "public/comments/form", post_plant: @post_plant, comment: @comment %>
+  
 </div>
