@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   # 顧客用
-# URL /customers/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -10,17 +9,19 @@ devise_for :users,skip: [:passwords], controllers: {
 scope module: :public do
   root 'homes#top'
   get 'search' => 'homes#search', as: 'search'
-  get "users/:id/favorites" => "users#favorites"
-  resources :users, only: [:new, :show, :index, :create, :edit, :update, :destroy]
-    
+  get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    member do
+      get :favorites
+    end
+  end
   resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create]
-    resource :favorites, only: [:create, :destroy]  
+    resource :favorites, only: [:create, :destroy]
   end
 end
 
 # 管理者用
-# URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }

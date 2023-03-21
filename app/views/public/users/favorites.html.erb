@@ -1,0 +1,13 @@
+<h3>いいね一覧</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <th>
+        <% @favorites.each do |post_plant| %>
+          <%= post_plant.title %>
+        <% end %>
+      </th>
+    </tr>
+  </tbody>
+</table>
