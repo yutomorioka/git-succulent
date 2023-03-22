@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:post_plant_id)
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_plant_id)
     @favorites = PostPlant.find(favorites)
   end
 

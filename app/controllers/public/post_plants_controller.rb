@@ -1,6 +1,7 @@
 class Public::PostPlantsController < ApplicationController
   def new
     @post_plant = PostPlant.new
+    @tags = Tag.all
   end
 
   def create
@@ -16,10 +17,12 @@ class Public::PostPlantsController < ApplicationController
 
   def index
     @post_plants = PostPlant.all
+    @tags = Tag.all
   end
 
   def show
     @post_plant = PostPlant.find(params[:id])
+    @tags = @post_plant.tags
     @comment = Comment.new
   end
 
@@ -29,7 +32,7 @@ class Public::PostPlantsController < ApplicationController
   private
 
   def post_plant_params
-    params.require(:post_plant).permit(:title, :explanation, :area, :plant_id, :user_id)
+    params.require(:post_plant).permit(:title, :explanation, :area, :plant_id, tag_ids: [])
   end
 
 end

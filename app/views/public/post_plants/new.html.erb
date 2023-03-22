@@ -12,6 +12,16 @@
 	<%= f.label :explanation, "本文:" %>
 	<%= f.text_area :explanation %>
 
+    <%= f.label :name, "特徴:" %>
+
+    <div class=”field”>
+	  
+	　</div>
+	　
+	　<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <%= tag.label { tag.check_box + tag.text } %>
+    <% end %>
+	　
 
 	<%= f.submit "投稿", class: "btn btn-primary ml2" %>
 <% end %>
