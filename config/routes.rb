@@ -6,10 +6,15 @@ devise_for :users,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
+devise_scope :user do
+  post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+end
+
 scope module: :public do
   root 'homes#top'
   get 'search' => 'homes#search', as: 'search'
   get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
+
   resources :users, only: [:show, :edit, :update, :destroy] do
     member do
       get :favorites
