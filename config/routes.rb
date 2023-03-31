@@ -33,7 +33,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
   get 'top' => 'homes#top', as: 'top'
+  resources :users, only: [:index, :show, :edit, :update]
   resources :plants, only: [:index, :create, :show, :edit, :update]
+  resources :post_plants, only: [:index, :show, :edit, :update]
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
