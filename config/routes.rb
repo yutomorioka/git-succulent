@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'comments/destroy'
+  end
   # 顧客用
 devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -36,7 +39,9 @@ namespace :admin do
   get 'users/:user_id/post_plants' => 'post_plants#index', as: 'user_post_plants'
   resources :users, only: [:index, :show, :edit, :update]
   resources :plants, only: [:index, :create, :show, :edit, :update]
-  resources :post_plants, only: [:index, :show, :edit, :update]
+  resources :post_plants, only: [:index, :show, :edit, :update] do
+    resources :comments, only: [:destroy]
+  end
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

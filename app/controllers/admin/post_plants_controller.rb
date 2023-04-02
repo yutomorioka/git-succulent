@@ -7,8 +7,12 @@ class Admin::PostPlantsController < ApplicationController
   def show
     @post_plant = PostPlant.find(params[:id])
     @user = @post_plant.user
+    @tags = @post_plant.tags
   end
 
   def edit
+    @post_plant = PostPlant.find(params[:id])
+    @user = @post_plant.user
+    @tags = @post_plant.tags
   end
 end

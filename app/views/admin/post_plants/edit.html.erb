@@ -1,2 +1,39 @@
-<h1>Admin::PostPlant#edit</h1>
-<p>Find me in app/views/admin/post_plant/edit.html.erb</p>
+<section class="inner">
+	<h2 class="section-ttl">投稿編集画面</h2>
+	<table class="order_info mb3 has_border">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		  <tr>
+				<td>投稿日時：</td>
+				<td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+			</tr>
+			<tr>
+				<td>ユーザー名：</td>
+				<td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
+			</tr>
+			<tr>
+				<td>投稿名：</td>
+				<td><%= @post_plant.title %></td>
+			</tr>
+			<tr>
+				<td>レポート：</td>
+				<td>
+					<%= @post_plant.explanation %>
+				</td>
+			</tr>
+			<tr>
+				<td>タグ：</td>
+				<td>
+					<% @tags.each do |tag| %>
+						<%= tag.name %>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

@@ -1,5 +1,5 @@
 <section class="inner">
-	<h2 class="section-ttl">投稿詳細</h2>
+	<h2 class="section-ttl">投稿詳細画面</h2>
 	<table class="order_info mb3 has_border">
 		<thead>
 			<tr>
@@ -9,41 +9,43 @@
 		</thead>
 		<tbody>
 		  <tr>
-				<td>投稿日時</td>
+				<td>投稿日時：</td>
 				<td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
 			</tr>
 			<tr>
-				<td>ユーザー名</td>
+				<td>ユーザー名：</td>
 				<td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
 			</tr>
 			<tr>
-				<td>投稿名</td>
-				<td><%= link_to @post_plant.title, admin_post_plant_path(@post_plant), class: "underline" %></td>
+				<td>投稿名：</td>
+				<td><%= @post_plant.title %></td>
 			</tr>
-			
-			
 			<tr>
-				<td>レポート</td>
+				<td>レポート：</td>
 				<td>
-					〒<%= @order.postal_code %><br>
-					<%= @order.destination %><br>
-					<%= @order.name %>
+					<%= @post_plant.explanation %>
 				</td>
 			</tr>
 			<tr>
-				<td>タグ</td>
-				<td><%= @order.payment_method_i18n %></td>
-			</tr>
-			<tr>
-				<td>コメント</td>
+				<td>タグ：</td>
 				<td>
-					<%= form_with(model: @order, url: admin_order_path(@order), local: true) do |f| %>
-						<%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
-						<%= f.submit "更新", class: "btn btn-primary" %>
+					<% @tags.each do |tag| %>
+						<%= tag.name %>
 					<% end %>
 				</td>
 			</tr>
 		</tbody>
 	</table>
+
+	<div>
+  	<p>コメント一覧</p>
+  		<% @post_plant.comments.each do |comment| %>
+    		<p>画像</p>
+    		<%= comment.user.name %>
+    		<%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    		<td>
+    			<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, class: "btn btn-danger pull-right" %>
+    		</td>
+  		<% end %>
 	</div>
 </section>

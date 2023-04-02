@@ -1,24 +1,24 @@
 <h2>
-	<%= @user.name %>さんの投稿一覧 
+  <%= @user.name %>さんの投稿一覧 
 </h2>
 
 <table class="admin_items has_border">
-	<thead>
-		<tr>
-			<th>投稿ID</th>
-			<th>投稿名</th>
-			<th>植物名</th>
-			<th>属名</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @post_plants.each do |post_plant| %>
-			<tr>
-				<td class="text-center"><%= post_plant.id %></td>
-				<td><%= link_to post_plant.title, admin_post_plant_path(post_plant), class: "underline" %></td>
-				<td class="text-center"><%= post_plant.plant.name %></td>
-				<td class="text-center"><%= post_plant.plant.genre %></td>
-			</tr>
-		<% end %>
-	</tbody>
+  <thead>
+    <tr>
+	  <th>投稿ID</th>
+	  <th>投稿名</th>
+	  <th>植物名</th>
+	  <th>属名</th>
+	</tr>
+  </thead>
+  <tbody>
+    <% @post_plants.each do |post_plant| %>
+	  <tr>
+	    <td class="text-center"><%= post_plant.id %></td>
+		<td><%= link_to post_plant.title, admin_post_plant_path(post_plant), class: "underline" %></td>
+		<td class="text-center"><%= post_plant.plant.name %></td>
+		<td class="text-center"><%= post_plant.plant.genre %></td>
+	  </tr>
+	<% end %>
+  </tbody>
 </table>
