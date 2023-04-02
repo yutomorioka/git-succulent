@@ -1,2 +1,49 @@
-<h1>Admin::PostPlant#show</h1>
-<p>Find me in app/views/admin/post_plant/show.html.erb</p>
+<section class="inner">
+	<h2 class="section-ttl">投稿詳細</h2>
+	<table class="order_info mb3 has_border">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		  <tr>
+				<td>投稿日時</td>
+				<td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+			</tr>
+			<tr>
+				<td>ユーザー名</td>
+				<td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
+			</tr>
+			<tr>
+				<td>投稿名</td>
+				<td><%= link_to @post_plant.title, admin_post_plant_path(@post_plant), class: "underline" %></td>
+			</tr>
+			
+			
+			<tr>
+				<td>レポート</td>
+				<td>
+					〒<%= @order.postal_code %><br>
+					<%= @order.destination %><br>
+					<%= @order.name %>
+				</td>
+			</tr>
+			<tr>
+				<td>タグ</td>
+				<td><%= @order.payment_method_i18n %></td>
+			</tr>
+			<tr>
+				<td>コメント</td>
+				<td>
+					<%= form_with(model: @order, url: admin_order_path(@order), local: true) do |f| %>
+						<%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+						<%= f.submit "更新", class: "btn btn-primary" %>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</section>

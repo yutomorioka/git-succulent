@@ -32,7 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admin do
-  get 'top' => 'homes#top', as: 'top'
+  root to: "homes#top"
   get 'users/:user_id/post_plants' => 'post_plants#index', as: 'user_post_plants'
   resources :users, only: [:index, :show, :edit, :update]
   resources :plants, only: [:index, :create, :show, :edit, :update]
