@@ -1,6 +1,7 @@
 class Admin::PostPlantsController < ApplicationController
   def index
-    @post_plants = PostPlant.all
+    @user = User.find(params[:user_id])
+    @post_plants = @user.post_plants
   end
 
   def show
