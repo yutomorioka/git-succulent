@@ -19,7 +19,7 @@ class Admin::PlantsController < ApplicationController
   end
 
   def update
-    @plant = List.find(params[:id])
+    @plant = Plant.find(params[:id])
     @plant.update(plant_params)
     redirect_to plant_path(@plant.id)
   end

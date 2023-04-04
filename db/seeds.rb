@@ -17,3 +17,9 @@ Tag.create([
     { name: '夏場の暑さ・蒸れに強い品種'},
     { name: '寒さに強い品種'}
     ])
+    
+    
+Admin.create!(
+  email: "admin@co.jp",
+  password: "111111"
+  )

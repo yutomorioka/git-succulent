@@ -4,6 +4,7 @@
 	<thead>
 		<th>会員ID</th>
 		<th>名前</th>
+		<th>メールアドレス</th>
 		<th>会員ステータス</th>
 		<th></th>
 	</thead>
@@ -11,15 +12,15 @@
 		<% @users.each do |user| %>
 			<tr>
 				<td><%= user.id %></td>
-				<td><%= user.name %></td>
+				<td><%= link_to user.name, admin_user_path(user) %></td>
+				<td><%= user.email %></td>
 				<td>
 					<% if user.is_active? %>
-						<span class="text-active">有効</span>	
+						<span class="text-active">有効</span>
 					<% else %>
 						<span class="text-invalid">退会済み</span>
 					<% end %>
 				</td>
-				<td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %></td>
 			</tr>
 		<% end %>
 	</tbody>

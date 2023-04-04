@@ -8,6 +8,7 @@
 			<th>投稿名</th>
 			<th>植物名</th>
 			<th>属名</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,6 +19,7 @@
 				<td><%= link_to post_plant.title, admin_post_plant_path(post_plant), class: "underline" %></td>
 				<td class="text-center"><%= post_plant.plant.name %></td>
 				<td class="text-center"><%= post_plant.plant.genre %></td>
+				<th><%= link_to "削除", admin_post_plant_path(post_plant), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
 			</tr>
 		<% end %>
 	</tbody>

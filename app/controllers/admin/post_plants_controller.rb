@@ -15,4 +15,11 @@ class Admin::PostPlantsController < ApplicationController
     @user = @post_plant.user
     @tags = @post_plant.tags
   end
+  
+  def destroy
+    @post_plant = PostPlant.find(params[:id])
+    @post_plant.destroy
+    redirect_to request.referer
+  end
+  
 end
