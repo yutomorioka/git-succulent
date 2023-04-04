@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Succulent</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,7 +15,7 @@
       <header class="admin_header">
         <div class="header-content">
           <%= link_to 'Succulent', admin_root_path %>
-          
+
         </div>
       </header>
     <% elsif user_signed_in? %>
