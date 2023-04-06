@@ -1,12 +1,8 @@
-<section class="inner">
+<div class="container mt-3">
 	<h2 class="section-ttl">投稿詳細画面</h2>
-	<table class="order_info mb3 has_border">
-		<thead>
-			<tr>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
+	<div class="row">
+		<div class="col-5">
+	<table class="table table-md table-borderless ">
 		<tbody>
 		  <tr>
 				<td>投稿日時：</td>
@@ -36,16 +32,26 @@
 			</tr>
 		</tbody>
 	</table>
-
-	<div>
-  	<p>コメント一覧</p>
-  		<% @post_plant.comments.each do |comment| %>
-    		<p>画像</p>
-    		<%= comment.user.name %>
-    		<%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    		<td>
-    			<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, class: "btn btn-danger pull-right" %>
-    		</td>
-  		<% end %>
 	</div>
-</section>
+
+	<div class="col-6">
+		<p>コメント一覧</p>
+		<table class="table">
+			<tbody>
+				
+  					<% @post_plant.comments.each do |comment| %>
+  						<tr>
+								<td>
+    							<%= comment.user.name %>
+    							<p><%= comment.comment %></p>
+    							<%= comment.created_at.strftime('%Y/%m/%d') %>
+    							<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, class: "btn btn-danger pull-right" %>
+    						</td>
+  						</tr>
+  					<% end %>
+
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
