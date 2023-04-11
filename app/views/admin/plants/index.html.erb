@@ -17,7 +17,7 @@
 			</div>
 			<div class="col-6 mt-3">
 				<h3>多肉植物一覧</h3>
-				<table class="genre_info has_border">
+				<table class="table table-md ">
   				<thead>
   					<tr>
 	  					<th>植物名</th>
@@ -30,7 +30,7 @@
 	  				<tr>
 	    				<td><%= plant.name %></td>
 							<td><%= plant.genre %></td>
-							<td class="text-center"><%= link_to "編集", edit_admin_plant_path(plant), class: "btn btn-success" %></td>
+							<td><%= link_to "編集", edit_admin_plant_path(plant), class: "btn btn-success" %></td>
 	  				</tr>
 					<% end %>
   			</tbody>

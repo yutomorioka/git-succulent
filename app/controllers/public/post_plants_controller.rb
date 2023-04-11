@@ -1,7 +1,6 @@
 class Public::PostPlantsController < ApplicationController
   def new
     @post_plant = PostPlant.new
-    @tags = Tag.all
   end
 
   def create

@@ -7,8 +7,6 @@
   <% end %>
 
 
-
-
   特徴から探す
   <% @tags.each do |tag| %>
     :<%= link_to tag.name, search_path(tag_ids: tag.name) %>
