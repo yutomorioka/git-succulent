@@ -6,7 +6,6 @@ class Public::PostPlantsController < ApplicationController
   def create
     @post_plant = PostPlant.new(post_plant_params)
     @post_plant.user_id = current_user.id
-
     if @post_plant.save!
       redirect_to post_plants_path
     else

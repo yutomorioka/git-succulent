@@ -28,6 +28,8 @@
               <p>ようこそ、<%= current_user.name %>さん!</p>
               <li><%= link_to 'マイページ', user_path(current_user) %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to '投稿一覧', post_plants_path %></li>
+              <li><%= link_to '新規投稿', new_post_plant_path %></li>
           </ul>
           <% else %>
           <%= link_to 'Succulent', root_path %>
@@ -45,5 +47,9 @@
     <main class="mb-auto">
       <%= yield %>
     </main>
+    
+    <footer>
+      Copyright © Infratop Inc. All Rights Reserved.
+    </footer>
   </body>
 </html>
