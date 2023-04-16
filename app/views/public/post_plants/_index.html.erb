@@ -12,8 +12,13 @@
   <tbody>
     <% post_plants.each do |post_plant| %>
       <tr>
-        <td>画像
-        <%= link_to post_plant.title, post_plant_path(post_plant.id) %></td>
+        <td>
+          <%= link_to post_plant_path(post_plant.id) do %>
+            <%= image_tag post_plant.get_image(100,100) %>
+            <%= post_plant.title %>
+          <% end %>
+          
+        </td>
         <td><%= post_plant.plant.name %></td>
         <td><%= post_plant.plant.genre %></td>
         <td><%= post_plant.user.name%></td>

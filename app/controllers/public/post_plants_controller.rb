@@ -30,7 +30,7 @@ class Public::PostPlantsController < ApplicationController
   private
 
   def post_plant_params
-    params.require(:post_plant).permit(:title, :explanation, :area, :plant_id, tag_ids: [])
+    params.require(:post_plant).permit(:title, :explanation, :image, :area, :plant_id, tag_ids: [])
   end
 
 end
