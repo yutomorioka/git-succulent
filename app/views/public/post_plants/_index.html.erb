@@ -1,44 +1,39 @@
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>多肉植物名</th>
-      <th>品種名</th>
-      <th>ユーザー名</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="card-list-container py-5">
     <% post_plants.each do |post_plant| %>
-      <tr>
-        <td>
+      <div class="card w-50 mx-auto mt-4 shadow-lg">
           <%= link_to post_plant_path(post_plant.id) do %>
-            <%= image_tag post_plant.get_image(100,100) %>
+            <%= image_tag post_plant.get_image(100,100), class: "card-img-top"; %>
+            <div class="text-center mt-3">
             <%= post_plant.title %>
+            </div>
           <% end %>
+        <div class="card-body">
           
-        </td>
+        <table class="table table-sm table-bordered">
+    <tbody>
+      <tr>
+        <th class="table-warning col-3">植物名</th>
         <td><%= post_plant.plant.name %></td>
-        <td><%= post_plant.plant.genre %></td>
-        <td><%= post_plant.user.name%></td>
-        <td>
-          <% if post_plant.favorited_by?(current_user) %>
-            <%= link_to post_plant_favorites_path(post_plant), method: :delete do %>
-              <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-              <%= post_plant.favorites.count %>
-            <% end %>
-          <% else %>
-            <%= link_to post_plant_favorites_path(post_plant), method: :post do %>
-              <i class="fas fa-heart" aria-hidden="true"></i>
-              <%= post_plant.favorites.count %>
-            <% end %>
-          <% end %>
-        </td>
-        <td>
-          <%= post_plant.comments.count %>
-        </td>
       </tr>
+      <tr>
+        <th class="table-warning col-3">属名</th>
+        <td><%= post_plant.plant.genre %></td>
+      </tr>
+      <tr>
+        <th class="table-warning col-3">地域</th>
+        <td><%= post_plant.area %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+        
+          
+              <i class="fas fa-thumbs-up"  data-fa-transform="down-4"></i><%= post_plant.favorites.count %>
+       
+        
+          <i class="far fa-comment" data-fa-transform="down-4"></i><%= post_plant.comments.count %>
+            </div>
+          </div>
+       </div>
     <% end %>
-  </tbody>
-</table>
+</div>
