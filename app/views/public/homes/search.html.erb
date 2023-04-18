@@ -1,16 +1,20 @@
-<h2>検索結果</h2>
-
-<% if @records.exists? %>
-  <h3>検索ワード：<%= @search %></h3>
-  <% @records.each do |plant| %>
-    <%= render 'public/post_plants/index', post_plants: plant.post_plants %>
+<div class="container mt-4">
+  <div class="m-auto col-8">
+    <h3 class="ml-5">検索結果</h3>
+    <% if @records.exists? %>
+      <% if @search %>
+        <p class="ml-5">検索ワード：<%= @search %></hp>
+        <% @records.each do |plant| %>
+          <%= render 'public/post_plants/index', post_plants: plant.post_plants %>
+        <% end %>
+      <% else %>
+      <p class="ml-5">検索タグ：<%= @tags %></p>
+        <% @records.each do |tag| %>
+          <%= render 'public/post_plants/index', post_plants: tag.post_plants %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>見つかりませんでした。検索条件を変更して再度お試しください。</p>
   <% end %>
-
-  <h3>検索タグ：<%= @tags %></h3>
-  <% @records.each do |tag| %>
-    <%= render 'public/post_plants/index', post_plants: tag.post_plants %>
-  <% end %>
-
-<% else %>
-  <h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
-<% end %>
+  </div>
+</div>
