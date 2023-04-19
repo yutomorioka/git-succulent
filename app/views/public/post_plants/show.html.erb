@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="bg-light rounded"><%= @post_plant.explanation %></div>
+        <div class="bg-light rounded p-3"><%= simple_format @post_plant.explanation %></div>
       </div>
     <%= render "public/comments/index", post_plant: @post_plant %>
     <%= render "public/comments/form", post_plant: @post_plant, comment: @comment %>

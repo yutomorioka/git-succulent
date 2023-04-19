@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post_plants = @user.post_plants
   end
 
   def edit

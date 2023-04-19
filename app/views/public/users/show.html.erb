@@ -1,1 +1,27 @@
-<p><%=link_to "お気に入り記事",favorites_user_path(@user) %></p>
+<div class="container mt-4">
+  <h4 class="ml-5 bg-light">マイページ</h4>
+  <div class="row">
+    <div class="card w-25 ml-5 mt-4 shadow-lg">
+      <div class="card body">
+        <%= image_tag @user.get_profile_image(100,100), class:"mx-4 mt-3"; %>
+        <div class="mx-auto mb-3">
+          <%= @user.name %>さん
+        </div>
+        <div class="mx-auto">
+          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-success mb-3" %>
+        </div>
+        <div class="mx-auto">
+          <p><%=link_to "お気に入り記事",favorites_user_path(@user) %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-5 offset-2">
+      <h3>私のそだレポ</h3>
+      <% @post_plants.each do |post_plant| %>
+        <%= post_plant.title %>
+      <% end %>
+    </div>
+  </div>
+  
+</div>
+
