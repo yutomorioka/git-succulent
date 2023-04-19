@@ -2,7 +2,7 @@
   <% post_plants.each do |post_plant| %>
     <div class="card w-75 mx-auto mb-4 shadow-lg">
       <%= link_to post_plant_path(post_plant.id) do %>
-        <%= image_tag post_plant.get_image(100,100), class: "card-img-top", style: "width: 550px; height: 500px;" %>
+        <%= image_tag post_plant.get_image(300,300), class: "card-img-top" %>
         
         <div class="text-center mt-3">
           <%= post_plant.title %>

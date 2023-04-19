@@ -33,27 +33,20 @@
           </tr>
         </tbody>
       </table>
-
       <div>
         <div>
           <%= image_tag @post_plant.get_image(500,500) %>
         </div>
         <div class="container-fluid">
-           <div class="row">
-          <span>作成日<%= @post_plant.created_at.strftime('%Y/%m/%d') %></span>
-          <div class="ml-auto">
-            <%= render "public/favorites/favorite", post_plant: @post_plant %>
-            <i class="far fa-comment mr-1"></i><%= @post_plant.comments.count %>
+          <div class="row">
+            <span>作成日<%= @post_plant.created_at.strftime('%Y/%m/%d') %></span>
+            <div class="ml-auto">
+              <%= render "public/favorites/favorite", post_plant: @post_plant %>
+            </div>
           </div>
         </div>
-        </div>
-       
-
         <div class="bg-light rounded"><%= @post_plant.explanation %></div>
       </div>
-
-
-
     <%= render "public/comments/index", post_plant: @post_plant %>
     <%= render "public/comments/form", post_plant: @post_plant, comment: @comment %>
     </div>

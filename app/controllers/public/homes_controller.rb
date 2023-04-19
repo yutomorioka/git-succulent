@@ -9,5 +9,5 @@ class Public::HomesController < ApplicationController
       @records = Tag.search_for(@tags)
     end
   end
-
+  
 end
