@@ -2,7 +2,8 @@
   <% post_plants.each do |post_plant| %>
     <div class="card w-75 mx-auto mb-4 shadow-lg">
       <%= link_to post_plant_path(post_plant.id) do %>
-        <%= image_tag post_plant.get_image(100,100), class: "card-img-top"; %>
+        <%= image_tag post_plant.get_image(100,100), class: "card-img-top", style: "width: 550px; height: 500px;" %>
+        
         <div class="text-center mt-3">
           <%= post_plant.title %>
         </div>
@@ -30,7 +31,7 @@
           </table>
           <i class="fas fa-thumbs-up mr-1"></i><%= post_plant.favorites.count %>
           <i class="far fa-comment mr-1"></i><%= post_plant.comments.count %>
-        </div>
+     
       </div>
     </div>
   <% end %>
