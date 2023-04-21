@@ -13,14 +13,15 @@ end
 scope module: :public do
   root 'homes#top'
   get 'search' => 'homes#search', as: 'search'
-  get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'confirm_unsubscribe'
-
+  get "/users/:id/unsubscribe" => "users#unsubscribe", as: 'users/unsubscribe'
+  patch "/users/:id/withdraw" => "users#withdraw", as: 'users/withdraw'
+  put 'users/withdraw' => 'users#withdraw'
   resources :users, only: [:show, :edit, :update, :destroy] do
     member do
       get :favorites
     end
   end
-  resources :post_plants, only: [:new, :show, :index, :create, :edit, :update, :destroy] do
+  resources :post_plants, only: [:new, :show, :index, :create] do
     resources :comments, only: [:create]
     resource :favorites, only: [:create, :destroy]
   end

@@ -1,3 +1,8 @@
+<% if flash[:danger] %>
+  <div class="notification bg-danger">
+    <p class="notice text-center text-light py-3"><%= flash[:danger] %></p>
+  </div>
+<% end %>
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">

@@ -1,3 +1,13 @@
+<% if @post_plant.errors.any? %>
+  <div class="notification bg-danger">
+    <%= @post_plant.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @post_plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="container col-5 mt-4">
 	<h4>投稿画面</h4>
   <%= form_with model: @post_plant, url: post_plants_path do |f| %>

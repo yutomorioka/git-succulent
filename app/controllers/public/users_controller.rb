@@ -26,7 +26,12 @@ class Public::UsersController < ApplicationController
     @favorites = PostPlant.find(favorites)
   end
 
+  def unsubscribe
+    @user = current_user
+  end
+
   def withdraw
+    @user = User.find(params[:id])
     @user.update(is_active: false)
     reset_session
     redirect_to root_path
@@ -34,7 +39,7 @@ class Public::UsersController < ApplicationController
 
 
   private
-  
+
   def ensure_correct_user
     @user = User.find(params[:id])
     unless @user == current_user

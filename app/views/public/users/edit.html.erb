@@ -1,3 +1,13 @@
+<% if @user.errors.any? %>
+  <div class="notification bg-danger">
+    <%= @user.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="container col-5 mt-3">
   <div class="mx-auto">
     <h3>プロフィール編集</h3>
@@ -19,6 +29,7 @@
       </div>
 
       <%= f.submit "更新", class: "btn btn-success mt-4" %>
+      <%= link_to "退会する", users_unsubscribe_path, class: "btn btn-danger mt-4 ml-3" %>
     <% end %>
   </div>
 </div>
