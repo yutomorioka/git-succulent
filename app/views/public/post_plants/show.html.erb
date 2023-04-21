@@ -2,11 +2,11 @@
 
   <div class="card w-50 mt-5 mx-auto shadow-lg">
 
-    <h3 class="text-center bg-light pt-3"><%= @post_plant.title %></h3>
+    <h3 class="text-center bg-light pt-3 mb-3"><%= @post_plant.title %></h3>
 
     <div class="m-auto">
       <div>
-        <%= @post_plant.user.name %>さん
+        <%= link_to @post_plant.user.name, user_path(@post_plant.user) %>さん
       </div>
 
       <table class="table table-sm table-bordered">

@@ -10,46 +10,75 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <body>
+    <header>
+      <nav class="navbar bg-success">
         <div class="container">
           <% if admin_signed_in? %>
-            <a class="navbar-brand p-3" href="/"><span><%= link_to 'Succulent', admin_root_path %></spann></a>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-link text-light"><%= link_to '植物管理', admin_plants_path %></li>
-              <li class="nav-link text-light"><%= link_to '会員一覧', admin_users_path %></li>
-              <li class="nav-link text-light"><%= link_to '投稿一覧', admin_root_path %></li>
-              <li class="nav-link text-light"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+            <a class="navbar-brand p-3" href="/"><spann class='text-light'><i class="fas fa-leaf" data-fa-transform="right-20"></i><%= link_to 'Succulent', admin_root_path, class: 'text-light' %></span></a>
+            <ul class="navbar-nav ml-auto d-flex flex-row">
+              <li><%= link_to '植物管理', admin_plants_path, class: 'nav-link text-light ml-2' %></li>
+              <li><%= link_to '会員一覧', admin_users_path, class: 'nav-link text-light ml-2' %></li>
+              <li><%= link_to '投稿一覧', admin_root_path, class: 'nav-link text-light ml-2' %></li>
+              <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light ml-2' %></li>
             </ul>
           <% elsif user_signed_in? %>
-            <%= link_to 'Succulent', root_path %>
-            <ul class="flex">
-              <p>ようこそ、<%= current_user.name %>さん!</p>
-              <li><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to '投稿一覧', post_plants_path %></li>
-              <li><%= link_to '新規投稿', new_post_plant_path %></li>
-          </ul>
+            <a class="navbar-brand py-3" href="/"><span class='text-light'><i class="fas fa-leaf" data-fa-transform="right-10"></i><%= link_to 'Succulent', root_path, class: 'text-light' %></span></a>
+              <div class="mx-auto text-light">ようこそ、<%= current_user.name %>さん!</div>
+              <ul class="navbar-nav ml-auto d-flex flex-row">
+                <li>
+                  <%= link_to new_post_plant_path, class: 'nav-link text-light ml-2' do %>
+                    <i class="fas fa-pencil-alt"></i>新規投稿
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to post_plants_path, class: 'nav-link text-light ml-2' do %>
+                    <i class="fas fa-leaf"></i>投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_path(current_user), class: 'nav-link text-light ml-2' do %>
+                    <i class="far fa-user"></i>マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light ml-2' do %>
+                    <i class="fas fa-sign-out-alt"></i>ログアウト
+                  <% end %>
+                </li>
+            </ul>
+
           <% else %>
-          <%= link_to 'Succulent', root_path %>
-          <ul class="flex">
-            <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
-            <li><%= link_to '新規登録', new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <a class="navbar-brand py-3" href="/"><span class='text-light'><i class="fas fa-leaf" data-fa-transform="right-10"></i><%= link_to 'Succulent', root_path, class: 'text-light' %></span></a>
+          <ul class="navbar-nav ml-auto d-flex flex-row">
+            <li>
+              <%= link_to post_plants_path, class: 'nav-link text-light ml-2' do %>
+                <i class="fas fa-leaf"></i>投稿一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, class: 'nav-link text-light ml-2' do %>
+                <i class="fas fa-user-plus"></i>新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path, class: 'nav-link text-light ml-2' do %>
+                <i class="fas fa-sign-in-alt"></i>ログイン
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-success btn btn-light ml-2' %>
+            </li>
           </ul>
           <% end %>
         </div>
       </nav>
     </header>
 
-
-    <main class="mb-auto">
+    <main>
       <%= yield %>
     </main>
 
-    <footer>
-      Copyright © Infratop Inc. All Rights Reserved.
-    </footer>
+    <footer class="text-center p-2 mt-5 bg-secondary">Copyright ©</footer>
   </body>
 </html>

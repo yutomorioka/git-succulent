@@ -46,7 +46,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    new_post_plant_path
+    user_path(current_user)
   end
 
   # protected

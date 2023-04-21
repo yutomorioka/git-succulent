@@ -7,14 +7,14 @@ class Public::PostPlantsController < ApplicationController
     @post_plant = PostPlant.new(post_plant_params)
     @post_plant.user_id = current_user.id
     if @post_plant.save!
-      redirect_to post_plants_path
+      redirect_to post_plants_path, notice: "投稿に成功しました。"
     else
       render :new
     end
   end
 
   def index
-    @post_plants = PostPlant.all
+    @post_plants = PostPlant.all.reverse_order
     @tags = Tag.all
   end
 

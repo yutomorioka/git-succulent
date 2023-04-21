@@ -1,5 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
+    @post_plants = PostPlant.all.reverse_order
+    @tags = Tag.all
   end
 
   def search
