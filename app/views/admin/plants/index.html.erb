@@ -1,3 +1,18 @@
+<% if flash[:notice] %>
+  <div class="notification bg-primary">
+    <p class="notice text-center text-light py-3"><%= notice %></p>
+  </div>
+<% end %>
+<% if @plant.errors.any? %>
+  <div class="notification bg-danger">
+    <%= @plant.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="container mt-3" >
 	<h2>多肉植物管理</h2>
 		<div class="row">
@@ -12,7 +27,7 @@
 							<%= f.label :genre, "属名:" %>
 							<%= f.text_field :genre, class:"form-control col-6" %>
 						</div>
-							<%= f.submit "追加", class: "btn btn-primary ml2" %>
+							<%= f.submit "登録", class: "btn btn-primary ml2" %>
 					<% end %>
 			</div>
 			<div class="col-6 mt-3">

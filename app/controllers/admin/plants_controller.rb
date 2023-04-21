@@ -1,4 +1,6 @@
 class Admin::PlantsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @plant = Plant.new
     @plants = Plant.all
@@ -7,9 +9,9 @@ class Admin::PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     if @plant.save
-      redirect_to admin_plants_path
+      redirect_to admin_plants_path, notice: "登録に成功しました。"
     else
-      @plant= Plant.all
+      @plants = Plant.all
       render :index
     end
   end
@@ -20,8 +22,11 @@ class Admin::PlantsController < ApplicationController
 
   def update
     @plant = Plant.find(params[:id])
-    @plant.update(plant_params)
-    redirect_to plant_path(@plant.id)
+    if @plant.update(plant_params)
+      redirect_to admin_plants_path, notice: "編集に成功しました。"
+    else
+      render :edit
+    end
   end
 
   private

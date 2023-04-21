@@ -1,29 +1,29 @@
 <div class="container mt-3">
 	<h2>投稿一覧</h2>
 
-<table class="table table-hover">
-	<thead>
-		<tr class="text-center">
-			<th>投稿ID</th>
-			<th>ユーザー名</th>
-			<th>投稿名</th>
-			<th>植物名</th>
-			<th>属名</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @post_plants.each do |post_plant| %>
-			<tr>
-				<td class="text-center"><%= post_plant.id %></td>
-				<td class="text-center"><%= link_to post_plant.user.name, admin_user_path(post_plant.user) %></td>
-				<td class="text-center"><%= link_to post_plant.title, admin_post_plant_path(post_plant) %></td>
-				<td class="text-center"><%= post_plant.plant.name %></td>
-				<td class="text-center"><%= post_plant.plant.genre %></td>
-				<th class="text-center"><%= link_to "削除", admin_post_plant_path(post_plant), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "btn btn-danger"%></th>
+	<table class="table table-hover">
+		<thead>
+			<tr class="text-center">
+				<th>投稿ID</th>
+				<th>ユーザー名</th>
+				<th>投稿名</th>
+				<th>植物名</th>
+				<th>属名</th>
+				<th></th>
 			</tr>
-		<% end %>
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			<% @post_plants.each do |post_plant| %>
+				<tr>
+					<td class="text-center"><%= post_plant.id %></td>
+					<td class="text-center"><%= link_to post_plant.user.name, admin_user_path(post_plant.user) %></td>
+					<td class="text-center"><%= link_to post_plant.title, admin_post_plant_path(post_plant) %></td>
+					<td class="text-center"><%= post_plant.plant.name %></td>
+					<td class="text-center"><%= post_plant.plant.genre %></td>
+					<th class="text-center"><%= link_to "削除", admin_post_plant_path(post_plant), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "btn btn-danger"%></th>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
 

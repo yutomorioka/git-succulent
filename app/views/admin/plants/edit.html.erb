@@ -1,3 +1,13 @@
+<% if @plant.errors.any? %>
+  <div class="notification bg-danger">
+    <%= @plant.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @plant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="container mt-3" >
   <h2>植物情報の編集</h2>
     <%= form_with model: @plant, url: admin_plant_path do |f| %>
