@@ -1,7 +1,7 @@
 <div class="card-list-container">
   <div class="card w-50 mt-5 mx-auto shadow-lg">
     <h3 class="text-center bg-light pt-3 mb-3"><%= @post_plant.title %></h3>
-    <div class="m-auto">
+    <div class="mx-auto">
         <%= link_to @post_plant.user.name, user_path(@post_plant.user) %>さん
       <table class="table table-sm table-bordered">
         <tbody>
@@ -29,7 +29,7 @@
       </table>
       <div class="mt-4">
         <div>
-          <%= image_tag @post_plant.get_image(500,500) %>
+          <%= image_tag @post_plant.get_image(500,500), :size =>'400x300' %>
         </div>
         <div class="container-fluid">
           <div class="row">

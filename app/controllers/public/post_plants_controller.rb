@@ -1,4 +1,6 @@
 class Public::PostPlantsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def new
     @post_plant = PostPlant.new
   end

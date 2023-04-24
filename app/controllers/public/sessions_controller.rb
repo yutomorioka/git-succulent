@@ -6,7 +6,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to post_plants_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   # GET /resource/sign_in
@@ -29,7 +29,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    post_plants_path
+    new_user_session_path
   end
 
   protected

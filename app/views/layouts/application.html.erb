@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <header>
       <nav class="navbar bg-success">
         <div class="container">
@@ -47,15 +47,9 @@
                   <% end %>
                 </li>
             </ul>
-
           <% else %>
           <a class="navbar-brand py-3" href="/"><span class='text-light'><i class="fas fa-leaf" data-fa-transform="right-10"></i><%= link_to 'Succulent', root_path, class: 'text-light' %></span></a>
           <ul class="navbar-nav ml-auto d-flex flex-row">
-            <li>
-              <%= link_to post_plants_path, class: 'nav-link text-light ml-2' do %>
-                <i class="fas fa-leaf"></i>投稿一覧
-              <% end %>
-            </li>
             <li>
               <%= link_to new_user_registration_path, class: 'nav-link text-light ml-2' do %>
                 <i class="fas fa-user-plus"></i>新規登録
@@ -67,7 +61,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-success btn btn-light ml-2' %>
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-light ml-2' %>
             </li>
           </ul>
           <% end %>
@@ -75,10 +69,10 @@
       </nav>
     </header>
 
-    <main>
+    <main class="mb-auto">
       <%= yield %>
     </main>
 
-    <footer class="text-center p-2 mt-5 bg-secondary">Copyright ©</footer>
+    <footer class="text-center text-white pt-5 pb-4 bg-secondary">Copyright ©</footer>
   </body>
 </html>

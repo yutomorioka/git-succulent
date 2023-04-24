@@ -30,6 +30,7 @@
           </div>
           <%= f.submit "ログイン", class: "btn btn-block btn-info mt-5" %>
         <% end %>
+        <%= link_to 'ゲストでログインする', users_guest_sign_in_path, method: :post, class: "btn btn-block btn-info mt-4" %>
         <%= render "public/shared/links" %>
       </div>
     </div>
