@@ -1,5 +1,5 @@
 class Public::PostPlantsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def new
     @post_plant = PostPlant.new
@@ -16,7 +16,7 @@ class Public::PostPlantsController < ApplicationController
   end
 
   def index
-    @post_plants = PostPlant.all.reverse_order
+    @post_plants = PostPlant.page(params[:page]).reverse_order
     @tags = Tag.all
   end
 
@@ -24,9 +24,6 @@ class Public::PostPlantsController < ApplicationController
     @post_plant = PostPlant.find(params[:id])
     @tags = @post_plant.tags
     @comment = Comment.new
-  end
-
-  def edit
   end
 
   private
