@@ -1,5 +1,5 @@
 class PostPlant < ApplicationRecord
-  
+
   validates :title, length: { in: 1..30 }
   validates :explanation, length: { in: 1..1000 }
   validates :image, presence: true
