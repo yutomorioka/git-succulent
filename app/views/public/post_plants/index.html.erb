@@ -7,11 +7,12 @@
   <div class="row">
     <div class="col-8">
       <%= render 'public/post_plants/index', post_plants: @post_plants %>
+      <%= paginate @post_plants %>
     </div>
     <div class="col-4 mt-3">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <div class="input-group input-group-sm mb-3">
-          <%= f.text_field :search, :placeholder =>"植物名", class: "form-control col-6" %>
+          <%= f.text_field :search, :placeholder =>"植物名を入力してください", class: "form-control col-7" %>
           <div class="input-group-append">
             <%= f.submit '検索', class: "input-group-text" %>
           </div>

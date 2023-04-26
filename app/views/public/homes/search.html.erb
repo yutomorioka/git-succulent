@@ -7,11 +7,13 @@
         <% @records.each do |plant| %>
           <%= render 'public/post_plants/index', post_plants: plant.post_plants %>
         <% end %>
+        <%= paginate @records %>
       <% else %>
       <p class="ml-5">検索タグ：<%= @tags %></p>
         <% @records.each do |tag| %>
           <%= render 'public/post_plants/index', post_plants: tag.post_plants %>
         <% end %>
+        <%= paginate @records %>
       <% end %>
     <% else %>
       <p>見つかりませんでした。検索条件を変更して再度お試しください。</p>
