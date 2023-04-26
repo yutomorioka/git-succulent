@@ -16,7 +16,7 @@ class Public::PostPlantsController < ApplicationController
   end
 
   def index
-    @post_plants = PostPlant.all
+    @post_plants = PostPlant.all.reverse_order
     @tags = Tag.all
   end
 
