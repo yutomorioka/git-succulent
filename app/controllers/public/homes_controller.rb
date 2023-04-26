@@ -4,9 +4,9 @@ class Public::HomesController < ApplicationController
 
   def search
     if @search = params[:search]
-      @records = Plant.search_for(@search).page(params[:page]).reverse_order
+      @records = Plant.search_for(@search)
     elsif @tags = params[:tag_ids]
-      @records = Tag.search_for(@tags).page(params[:page]).reverse_order
+      @records = Tag.search_for(@tags)
     end
   end
 
