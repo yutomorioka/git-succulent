@@ -18,7 +18,7 @@
 					 	</tr>
 					 	<tr>
 					  	<th>レポート：</th>
-					   	<td >
+					   	<td>
 					    	<%= @post_plant.explanation %>
 					   	</td>
 					 	</tr>
@@ -35,7 +35,7 @@
 				  </tbody>
 				</table>
 			</div>
-      <div class="col-6">
+      <div class="col-4">
 	    	<p>コメント一覧</p>
 		    <table class="table">
 				  <tbody>
@@ -43,7 +43,7 @@
 	  					<tr>
 					    	<td>
 	    				  	<%= comment.user.name %>
-	    				  	<p class="text-justify"><%= comment.comment %></p>
+	    				  	<p><%= comment.comment %></p>
 	    				  	<%= comment.created_at.strftime('%Y/%m/%d') %>
 	    				  	<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger pull-right" %>
 	    					</td>
