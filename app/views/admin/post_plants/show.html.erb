@@ -1,53 +1,53 @@
 <div class="container mt-3">
   <h2 class="section-ttl">投稿詳細画面</h2>
     <div class="row">
-	  <div class="col-5">
-	    <table class="table table-md table-borderless ">
-		  <tbody>
-		    <tr>
-			   <td>投稿日時：</td>
-			   <td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
-			</tr>
-		    <tr>
-			   <td>ユーザー名：</td>
-			   <td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
-			 </tr>
-			 <tr>
-			   <td>投稿名：</td>
-			   <td><%= @post_plant.title %></td>
-			 </tr>
-			 <tr>
-			   <td>レポート：</td>
-			   <td>
-			     <%= @post_plant.explanation %>
-			   </td>
-			 </tr>
-			 <tr>
-			   <td>タグ：</td>
-			   <td>
-			     <% @tags.each do |tag| %>
-				   <%= tag.name %>
-				 <% end %>
-			   </td>
-			 </tr>
-		   </tbody>
-	     </table>
-	   </div>
+		  <div class="col-6">
+		    <table class="table table-sm table-borderless ">
+				  <tbody>
+				    <tr>
+					   <th class="col-3">投稿日時：</th>
+					   <td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+						</tr>
+				    <tr>
+					   <th>ユーザー名：</th>
+					   <td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
+					 </tr>
+					 <tr>
+					   <th>タイトル：</th>
+					   <td><%= @post_plant.title %></td>
+					 </tr>
+					 <tr>
+					   <th>レポート：</th>
+					   <td>
+					     <%= @post_plant.explanation %>
+					   </td>
+					 </tr>
+					 <tr>
+					   <th>タグ：</th>
+					   <td>
+					     <% @tags.each do |tag| %>
+						   <%= tag.name %>
+						 <% end %>
+					   </td>
+					 </tr>
+				  </tbody>
+		     </table>
+		   </div>
        <div class="col-6">
 	     <p>コメント一覧</p>
 		    <table class="table">
-			  <tbody>
-	     	    <% @post_plant.comments.each do |comment| %>
-  				  <tr>
-				    <td>
-    				  <%= comment.user.name %>
-    				  <p><%= comment.comment %></p>
-    				  <%= comment.created_at.strftime('%Y/%m/%d') %>
-    				  <%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger pull-right" %>
-    				</td>
-  				  </tr>
-  			    <% end %>
-			  </tbody>
+				  <tbody>
+		     	    <% @post_plant.comments.each do |comment| %>
+	  				  <tr>
+					    <td>
+	    				  <%= comment.user.name %>
+	    				  <p class="text", style="max-width:400px;"><%= comment.comment %></p>
+	    				  <%= comment.created_at.strftime('%Y/%m/%d') %>
+	    				  <%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger pull-right" %>
+	    				</td>
+	  				  </tr>
+	  			    <% end %>
+				  </tbody>
 		    </table>
 	     </div>
 	  </div>
