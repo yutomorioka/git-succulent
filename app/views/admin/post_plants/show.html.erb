@@ -1,49 +1,49 @@
 <div class="container mt-3">
-  <h3>投稿詳細画面</h3>
-    <div class="row">
-		  <div class="col-6">
-		    <table class="table table-sm table-borderless ">
-				  <tbody>
-				    <tr>
-					   <th class="col-3">投稿日時：</th>
-					   <td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+	<h3>投稿詳細画面</h3>
+		<div class="row">
+			<div class="col-6">
+		  	<table class="table table-sm table-borderless ">
+					<tbody>
+				  	<tr>
+					 		<th class="col-3">投稿日時：</th>
+					  	<td><%= @post_plant.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
 						</tr>
 				    <tr>
-					   <th>ユーザー名：</th>
-					   <td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
-					 </tr>
-					 <tr>
-					   <th>タイトル：</th>
-					   <td><%= @post_plant.title %></td>
-					 </tr>
-					 <tr>
-					   <th>レポート：</th>
-					   <td>
-					     <%= @post_plant.explanation %>
-					   </td>
-					 </tr>
-					 <tr>
-					   <th>タグ：</th>
-					   <td>
-					     <% @tags.each do |tag| %>
-					     <div>
-						     ：<%= tag.name %>
-						     </div>
-						   <% end %>
-					   </td>
-					 </tr>
+					  	<th>ユーザー名：</th>
+					  	<td><%= link_to @user.name, admin_user_path(@user), class: "underline" %></td>
+						</tr>
+					  <tr>
+					   	<th>タイトル：</th>
+					   	<td><%= @post_plant.title %></td>
+					 	</tr>
+					 	<tr>
+					  	<th>レポート：</th>
+					   	<td>
+					    	<%= @post_plant.explanation %>
+					   	</td>
+					 	</tr>
+					 	<tr>
+					  	<th>タグ：</th>
+					   	<td>
+					     	<% @tags.each do |tag| %>
+					    <div>
+						  	：<%= tag.name %>
+						  </div>
+						   	<% end %>
+					   	</td>
+					 	</tr>
 				  </tbody>
-		     </table>
-		   </div>
-       <div class="col-6">
-	     <p>コメント一覧</p>
+				</table>
+			</div>
+      <div class="col-6">
+	    	<p>コメント一覧</p>
 		    <table class="table">
 				  <tbody>
 		     		<% @post_plant.comments.each do |comment| %>
-	  					<tr class="col-3">
+	  					<tr>
 					    	<td>
 	    				  	<%= comment.user.name %>
-	    				  	<p><%= comment.comment %></p>
+	    				  	<p class="text-justify"><%= comment.comment %></p>
 	    				  	<%= comment.created_at.strftime('%Y/%m/%d') %>
 	    				  	<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger pull-right" %>
 	    					</td>
