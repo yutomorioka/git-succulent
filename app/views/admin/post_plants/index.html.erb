@@ -18,7 +18,7 @@
 	    <td><%= post_plant.id %></td>
 			<td><%= link_to post_plant.title, admin_post_plant_path(post_plant) %></td>
 			<td><%= post_plant.plant.name %></td>
-			<td><%= post_plant.plant.genre %></td>
+			<td>:<%= post_plant.plant.genre %></td>
 	  </tr>
 	<% end %>
   </tbody>
