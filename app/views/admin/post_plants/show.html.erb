@@ -18,7 +18,7 @@
 					 	</tr>
 					 	<tr>
 					  	<th>レポート：</th>
-					   	<td>
+					   	<td style="word-break: break-all;">
 					    	<%= @post_plant.explanation %>
 					   	</td>
 					 	</tr>
@@ -43,7 +43,7 @@
 	  					<tr>
 					    	<td>
 	    				  	<%= comment.user.name %>
-	    				  	<p><%= comment.comment %></p>
+	    				  	<p style="word-break: break-all;"><%= comment.comment %></p>
 	    				  	<%= comment.created_at.strftime('%Y/%m/%d') %>
 	    				  	<%= link_to "削除", admin_post_plant_comment_path(@post_plant, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger pull-right" %>
 	    					</td>
