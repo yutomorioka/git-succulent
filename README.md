@@ -23,7 +23,7 @@
 - 実装機能リストURL：https://docs.google.com/spreadsheets/d/12Dc7kb0qHbboRofgMQ1dQyHWf9yJ9vkTKdL3H1LpjMQ/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(AmazonLinux)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
