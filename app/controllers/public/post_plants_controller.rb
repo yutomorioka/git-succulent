@@ -26,6 +26,26 @@ class Public::PostPlantsController < ApplicationController
     @comment = Comment.new
   end
 
+  def edit
+    @post_plant = PostPlant.find(params[:id])
+  end
+
+  def update
+    @post_plant = PostPlant.find(params[:id])
+    if @post_plant.update(post_plant_params)
+      flash[:notice] = "投稿情報の更新に成功しました！"
+      redirect_to post_plant_path(@post_plant.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post_plant = PostPlant.find(params[:id])
+    @post_plant.destroy
+    redirect_to request.referer
+  end
+
   private
 
   def post_plant_params

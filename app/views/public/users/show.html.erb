@@ -30,6 +30,10 @@
           <%= image_tag post_plant.get_image(150,150), class:"mx-4 mt-3"; %>
           <div class="ml-4">
             <%= post_plant.title %>
+            <% if post_plant.user == current_user %>
+              <th><%= link_to "編集する", edit_post_plant_path(post_plant.id) %></th>
+              <th><%= link_to "削除する", post_plant_path(post_plant.id), method: :delete, "data-confirm" => "本当に投稿を削除しますか？？" %></th>
+            <% end %>
           </div>
         <% end %>
       <% end %>

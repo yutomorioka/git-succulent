@@ -21,7 +21,7 @@ scope module: :public do
       get :favorites
     end
   end
-  resources :post_plants, only: [:new, :show, :index, :create] do
+  resources :post_plants, only: [:new, :show, :index, :edit, :create, :update, :destroy] do
     resources :comments, only: [:create]
     resource :favorites, only: [:create, :destroy]
   end

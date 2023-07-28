@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h4><i class="fas fa-star"></i>お気に入り一覧</h4>
+  <h4><i class="fas fa-star"></i><%= @user.name %>さんのお気に入り一覧</h4>
   <% @favorites.each do |post_plant| %>
   <table class="table table-sm">
     <tbody>
