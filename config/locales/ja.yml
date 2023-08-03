@@ -84,7 +84,7 @@ ja:
       x_months: "%{count}ヶ月"
       x_years: "%{count}年"
     prompts:
-      second: 秒
+      second: 秒1
       minute: 分
       hour: 時
       day: 日
