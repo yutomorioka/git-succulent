@@ -5,6 +5,9 @@
       <p class="card-name"><%= comment.user.name %></p>
       <p class="card-text ml-3 mb-3" style="max-width:400px;"><%= comment.comment %></p>
       <%= comment.created_at.strftime('%Y/%m/%d') %>
+      <% if comment.user == current_user %>
+        <%= link_to "コメントを削除", post_plant_comment_path(post_plant, comment), method: :delete, class: "btn btn-sm btn-danger pull-right" %>
+      <% end %>
     </div>
   <% end %>
 </div>

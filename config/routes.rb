@@ -22,7 +22,7 @@ scope module: :public do
     end
   end
   resources :post_plants, only: [:new, :show, :index, :edit, :create, :update, :destroy] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
 end

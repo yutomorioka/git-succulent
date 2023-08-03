@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+  <div class="notification bg-primary">
+    <p class="notice text-center text-light py-3"><%= notice %></p>
+  </div>
+<% end %>
 <div class="card-list-container">
   <div class="card w-50 mt-5 mx-auto shadow-lg">
     <h3 class="text-center bg-light pt-3 mb-3"><%= @post_plant.title %></h3>

@@ -7,6 +7,11 @@ class Public::CommentsController < ApplicationController
     comment.save
     redirect_to post_plant_path(post_plant)
   end
+  
+  def destroy
+    Comment.find_by(id: params[:id], post_plant_id: params[:post_plant_id]).destroy
+    redirect_to request.referer
+  end
 
   private
 
