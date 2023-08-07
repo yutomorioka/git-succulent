@@ -9,29 +9,29 @@
           <%= post_plant.title %>
         </div>
       <% end %>
-        <div class="card-body px-5">
-          <table class="table table-sm table-bordered">
-            <tbody>
-              <tr>
-                <th class="table-warning col-3">ユーザー名</th>
-                <td><%= post_plant.user.name %></td>
-              </tr>
-              <tr>
-                <th class="table-warning col-3">植物名</th>
-                <td><%= post_plant.plant.name %></td>
-              </tr>
-              <tr>
-                <th class="table-warning col-3">属名</th>
-                <td><%= post_plant.plant.genre %></td>
-              </tr>
-              <tr>
-                <th class="table-warning col-3">地域</th>
-                <td><%= post_plant.area %></td>
-              </tr>
-            </tbody>
-          </table>
-          <i class="fas fa-thumbs-up mr-1"></i><%= post_plant.favorites.count %>
-          <i class="far fa-comment mr-1"></i><%= post_plant.comments.count %>
+      <div class="card-body px-5">
+        <table class="table table-sm table-bordered">
+          <tbody>
+            <tr>
+              <th class="table-warning col-3">ユーザー名</th>
+              <td><%= post_plant.user.name %></td>
+            </tr>
+            <tr>
+              <th class="table-warning col-3">植物名</th>
+              <td><%= post_plant.plant.name %></td>
+            </tr>
+            <tr>
+              <th class="table-warning col-3">属名</th>
+              <td><%= post_plant.plant.genre %></td>
+            </tr>
+            <tr>
+              <th class="table-warning col-3">地域</th>
+              <td><%= post_plant.area %></td>
+            </tr>
+          </tbody>
+        </table>
+        <i class="fas fa-thumbs-up mr-1"></i><%= post_plant.favorites.count %>
+        <i class="far fa-comment mr-1"></i><%= post_plant.comments.count %>
       </div>
     </div>
   <% end %>
